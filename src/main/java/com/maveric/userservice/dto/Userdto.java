@@ -1,4 +1,4 @@
-package dto;
+package com.maveric.userservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

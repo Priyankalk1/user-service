@@ -1,20 +1,18 @@
-package model;
-
+package com.maveric.userservice.model;
 import lombok.*;
-
-
 import javax.persistence.*;
 import java.sql.Date;
 
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @Entity
 @AllArgsConstructor
 @Table(name="UserDetails")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String firstname;
     private String middlename;
     private String lastname;

@@ -1,20 +1,19 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.model.User;
 
 import java.util.List;
 
 public interface UserService {
+    public List<UserDto> getUsers(Integer page, Integer pageSize);
+    public UserDto createUser(UserDto userDto);
 
-    List<User> getUsers();
+    public UserDto getUserDetails(Integer userId);
 
-    User createUser(User user);
+    public String deleteUser(Integer userId);
 
-    List<User> getUserDetails(Integer id);
+    public UserDto getUserDetailsByEmail(String emailId);
 
-    User updateUser(Integer id, User user);
-
-    public String deleteUser(Integer id);
-
-   User getUserDetailsByEmail(String email);
+    public UserDto updateUser(Integer userId, UserDto userDto);
 }

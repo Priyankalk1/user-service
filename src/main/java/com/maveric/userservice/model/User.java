@@ -1,32 +1,38 @@
 package com.maveric.userservice.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.maveric.userservice.enumeration.Gender;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor
 @Entity
-@AllArgsConstructor
-@Data
-@Table(name="UserDetails")
+@Getter
+@Setter
+@Builder
+@Table(name = "user_details")
 public class User {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private Integer id;
-    private String firstname;
-    private String middlename;
-    private String lastname;
+    private String firstName;
+    private String middleName;
+    private String lastName;
     private String email;
     private String phoneNumber;
     private String address;
-    private String dateOfBirth;
-    @CreationTimestamp
-    private Date createdAt;
-    @UpdateTimestamp
-    private Date updatedAt;
+    private LocalDateTime dateOfBirth;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
     private String role;
-    private String password;
+    private String Password;
 
 }
